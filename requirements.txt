@@ -1,0 +1,14 @@
+# Redrob AI Challenge — Requirements
+# ─────────────────────────────────────────────────────────────────────────────
+# The core ranker (rank.py) uses ONLY Python standard library:
+#   json, csv, math, argparse, pathlib, datetime, sys
+# No pip install needed to run rank.py.
+#
+# The packages below are only needed for:
+#   - validate_submission.py (stdlib only, no extras needed)
+#   - Reading .docx challenge files during development (python-docx)
+#   - Optional: analysis / EDA notebooks
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Development / analysis only (NOT required to reproduce submission.csv)
+python-docx>=1.1.0      # only used to read challenge .docx files

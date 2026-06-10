@@ -1,0 +1,85 @@
+# Redrob AI Challenge — Submission Metadata
+# ─────────────────────────────────────────────────────────────────────────────
+# Team identity
+# ─────────────────────────────────────────────────────────────────────────────
+team_name: "depth-ranker"
+
+primary_contact:
+  name: "Participant"
+  email: "participant@example.com"
+  phone: "+91-XXXXXXXXXX"
+
+team_members:
+  - name: "Participant"
+    email: "participant@example.com"
+    role: "ML Engineer / Team Lead"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Code and reproducibility
+# ─────────────────────────────────────────────────────────────────────────────
+github_repo: "https://github.com/YOUR_USERNAME/redrob-ai-challenge"
+
+sandbox_link: "https://huggingface.co/spaces/YOUR_USERNAME/redrob-ranker"
+
+reproduce_command: "python rank.py --candidates ./candidates.jsonl --out ./submission.csv"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Compute environment
+# ─────────────────────────────────────────────────────────────────────────────
+compute:
+  platform: "Windows PC"
+  cpu_cores: 8
+  ram_gb: 16
+  python_version: "3.14"
+  os: "Windows 11"
+  uses_gpu_for_inference: false
+  has_network_during_ranking: false
+  pre_computation_required: false
+  pre_computation_time_minutes: 0
+
+# ─────────────────────────────────────────────────────────────────────────────
+# AI tools declaration
+# ─────────────────────────────────────────────────────────────────────────────
+ai_tools_used:
+  - "Antigravity (Google DeepMind)"
+
+ai_usage_summary: |
+  Used Antigravity AI assistant for code architecture discussion and
+  implementation. All scoring logic, weights, and design decisions were
+  engineered based on careful analysis of the job description and dataset.
+  No candidate data was fed to any external LLM API during ranking.
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Approach summary
+# ─────────────────────────────────────────────────────────────────────────────
+methodology_summary: |
+  Rule-based ranker with explicit multi-component scoring and a
+  behavioural-signal multiplier. Five weighted components:
+  (1) AI/ML skill depth [35%] — proficiency × duration × endorsements,
+      platform-verified assessment scores weighted 2× self-reported,
+      premium skills (embeddings, vector DBs, LLMs, IR) get 1.6× weight;
+  (2) Title + career trajectory [25%] — AI/ML title relevance, fraction of
+      career at product vs. services firms (full-consulting career capped at
+      0.25), recency-weighted ML mentions in role descriptions;
+  (3) Experience years [15%] — sweet-spot scoring peaked at 6-8 yrs;
+  (4) Availability & engagement [15%] — activity recency, notice period,
+      open-to-work flag, location match, application activity;
+  (5) Education tier & field [10%] — tier_1 > tier_2 > ... with CS/AI
+      field multiplier.
+  Final score = component_score × behavioural_modifier (0.30–1.20).
+  Behavioural modifier uses all 23 redrob_signals: response rate, interview
+  completion, GitHub activity, verification, recruiter engagement.
+  Honeypot detection rejects profiles with impossible career timelines,
+  expert skills with zero duration, or perfect-across-the-board scores.
+  Runtime: ~60s for 100K candidates on a single CPU core, zero external
+  dependencies (pure Python stdlib).
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Declarations
+# ─────────────────────────────────────────────────────────────────────────────
+declarations:
+  read_submission_spec: true
+  code_is_original_work: true
+  no_collusion: true
+  honeypot_check_done: true
+  reproduction_tested: true
